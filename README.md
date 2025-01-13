@@ -12,6 +12,15 @@ This tool set requires node.js
 Run:
 
 ```
+npm install @marp-team/marp-cli
+npm install @mermaid-js/mermaid-cli
+```
+
+to install marp and mermaid (with option -g, globally install).
+
+Then run:
+
+```
 npm run dev
 ```
 
