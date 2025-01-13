@@ -17,3 +17,5 @@ math: katex
 # Page 1
 
 - fuga
+
+<img src="images/test.svg" height="60%">
