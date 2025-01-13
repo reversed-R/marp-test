@@ -5,6 +5,20 @@
 Useful tool set to make a slide show for a presentation,
 with marp (markdown presentation builder) and mermaid (graph builder by text)
 
+## How to use
+
+This tool set requires node.js
+
+Run:
+
+```
+npm run dev
+```
+
+and then will build a slide (automatically build svg images from mmd files).
+
+Access `localhost:8080` with your browser to see the slide show.
+
 ## Package
 
 As you can see in `package.json`, use the following package of node.js:
