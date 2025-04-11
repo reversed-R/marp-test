@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": ". ./convert_images.sh && npx @marp-team/marp-cli -s ./src"
+    "dev": ". ./convert_images.sh && npx @marp-team/marp-cli -s ./src",
+    "pptx": "npx @marp-team/marp-cli@latest ./src/slide/index.md -o ./src/slide/index.pptx --pptx-editable --allow-local-files",
+    "pdf": "npx @marp-team/marp-cli ./src/slide/index.md -o ./src/slide/index.pdf --allow-local-files"
   },
   "author": "",
   "license": "ISC",
