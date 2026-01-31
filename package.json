@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.0.4"
+    "@marp-team/marp-cli": "^4.2.3"
   },
   "dependencies": {
-    "@mermaid-js/mermaid-cli": "^11.4.2"
+    "@mermaid-js/mermaid-cli": "^11.12.0"
   }
 }
