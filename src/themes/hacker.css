@@ -376,6 +376,16 @@ footer {
   letter-spacing: 0.06em;
 }
 
+/* pin footer to bottom edge on all slides except title */
+section:not(.title) footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 72px;
+  box-sizing: border-box;
+}
+
 /* ─── Image ──────────────────────────────────────────────── */
 
 img {
