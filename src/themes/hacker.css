@@ -1,0 +1,398 @@
+/* @theme hacker */
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Share+Tech+Mono&display=swap");
+
+:root {
+  --bg: #2b2b2b;
+  --bg-card: #101510;
+  --bg-code: #24292e;
+  --fg: #1b8;
+  --fg-dim: #075;
+  --heading: #1b8;
+  --accent: #1b8;
+  /* --code-fg: #7ee787; */
+  --border: #075;
+  --font-body: "JetBrains Mono", "Fira Code", monospace;
+  --font-head: "Share Tech Mono", monospace;
+}
+
+/* ─── Base slide ─────────────────────────────────────────── */
+
+section {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 26px;
+  line-height: 1.6;
+  padding: 56px 72px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* corner bracket: top-left */
+section::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 28px;
+  height: 28px;
+  border-top: 2px solid var(--fg-dim);
+  border-left: 2px solid var(--fg-dim);
+  pointer-events: none;
+}
+
+/* subtle scanline overlay */
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+section::after {
+  color: var(--fg-dim);
+  font-family: var(--font-body);
+  font-size: 0.55em;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Headings ───────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-head);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.9em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.6em;
+  text-shadow: 0 0 24px rgba(0, 230, 118, 0.18);
+}
+
+h2 {
+  font-size: 1.4em;
+  color: var(--heading);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.15em;
+  color: var(--heading);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  color: var(--fg);
+}
+
+/* ─── Title slide  (<!-- _class: title -->) ──────────────── */
+
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 72px 96px;
+}
+
+section.title::before {
+  width: 48px;
+  height: 48px;
+  border-color: var(--heading);
+}
+
+section.title h1 {
+  font-size: 2.4em;
+  border: none;
+  padding-bottom: 0;
+  margin-bottom: 0.2em;
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(0, 230, 118, 0.25);
+}
+
+section.title h1::before {
+  content: "> ";
+  color: var(--fg-dim);
+}
+
+section.title p,
+section.title h2 {
+  color: var(--fg-dim);
+  font-size: 0.9em;
+  border: none;
+  margin: 0.1em 0;
+}
+
+/* ─── Lists ──────────────────────────────────────────────── */
+
+ul,
+ol {
+  padding-left: 1.4em;
+  margin: 0.3em 0;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+ul li::marker {
+  content: "▸ ";
+  color: var(--heading);
+}
+
+ol li::marker {
+  color: var(--heading);
+}
+
+/* nested */
+ul ul li::marker {
+  content: "· ";
+  color: var(--fg-dim);
+}
+
+/* ─── Code ───────────────────────────────────────────────── */
+
+code {
+  font-family: var(--font-body);
+  background-color: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.82em;
+}
+
+pre {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--heading);
+  border-radius: 4px;
+  padding: 0.4em 0.8em;
+  margin: 0.6em 0;
+  overflow: auto;
+}
+
+pre code {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 0.78em;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+/* ── Sunburst syntax highlight (from gaia theme, highlight.js) ── */
+/* Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>   */
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 18px 22px;
+  background: var(--bg-code);
+  color: #f8f8f8;
+}
+
+code.hljs {
+  padding: 1px 6px;
+  background: var(--bg-code);
+  color: #f8f8f8;
+}
+
+.hljs-built_in {
+  color: #e28964;
+  font-style: italic;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #909090;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #b779e0;
+}
+
+.hljs-string {
+  color: #65b042;
+}
+
+.hljs-subst {
+  color: #daefa3;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #e9c062;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-tag,
+.hljs-name {
+  color: #89bdff;
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title,
+.hljs-doctag {
+  text-decoration: underline;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-number {
+  color: #3387cc;
+}
+
+.hljs-params,
+.hljs-variable,
+.hljs-template-variable {
+  color: #3e87e3;
+}
+
+.hljs-attribute {
+  color: #cda869;
+}
+
+.hljs-meta {
+  color: #8996a8;
+}
+
+.hljs-formula {
+  background-color: #0e2231;
+  color: #f8f8f8;
+  font-style: italic;
+}
+
+.hljs-addition {
+  background-color: #253b22;
+  color: #f8f8f8;
+}
+
+.hljs-deletion {
+  background-color: #420e09;
+  color: #f8f8f8;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* ─── Table ──────────────────────────────────────────────── */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85em;
+  margin: 0.6em 0;
+}
+
+th {
+  font-family: var(--font-head);
+  background-color: var(--bg-card);
+  color: var(--heading);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+td {
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  color: var(--fg);
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(57, 211, 83, 0.04);
+}
+
+/* ─── Typography helpers ─────────────────────────────────── */
+
+strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+em {
+  /* color: var(--code-fg); */
+  font-style: italic;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fg-dim);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.8em 0;
+}
+
+/* ─── Header / Footer ────────────────────────────────────── */
+
+header {
+  font-family: var(--font-body);
+  color: var(--fg-dim);
+  font-size: 0.52em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+footer {
+  font-family: var(--font-body);
+  color: var(--fg-dim);
+  font-size: 0.52em;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Image ──────────────────────────────────────────────── */
+
+img {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+/* ─── Invert class  (white-on-black reversed) ────────────── */
+
+section.invert {
+  background-color: var(--heading);
+  color: var(--bg);
+}
+
+section.invert h1,
+section.invert h2 {
+  color: var(--bg);
+  border-color: rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+}
